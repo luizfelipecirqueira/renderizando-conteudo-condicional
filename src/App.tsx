@@ -1,24 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
 
-function App() {
+const App = () => {
+
+  const [show, setShow] = useState(false);
+
+  const handleClick = () => {
+    setShow(!show);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <button onClick={handleClick}>{show ? 'Ocultar' : 'Mostrar'}</button>
+
+      {show === true && 
+      <div>
+        Teste renderizando conteúdo condicional
+      </div>}
     </div>
   );
 }
